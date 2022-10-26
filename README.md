@@ -9,7 +9,7 @@ https://arxiv.org/pdf/1706.02921.pdf
 Musical feature extraction
 
 ## Project type
-Bring your own model / data
+Bring your own model
 
 ## Summary
 My main focus for this project will be the topic of key detection in musical pieces. I hope to reuse existing approaches and further refine them to improve on their performance. Steps are planned in the following order:

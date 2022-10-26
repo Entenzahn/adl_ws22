@@ -19,7 +19,7 @@ My main focus for this project will be the topic of key detection in musical pie
 
 I plan to use the following datasets:
 * [GiantSteps](https://github.com/GiantSteps/giantsteps-key-dataset) & [GiantSteps MTG](https://github.com/GiantSteps/giantsteps-mtg-key-dataset)  
-These seems to be common datasets to use for key extraction and also provides us with some comparable approaches from other models
+These seems to be common datasets to use for key extraction and also provide us with some comparable approaches from other models
 * [Children's Songs](https://dagshub.com/kinkusuma/children-song-dataset)  
 This is a set of vocal recordings only
 * Optionally, my own dataset

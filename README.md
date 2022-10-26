@@ -1,9 +1,9 @@
 # Musical key detection with Deep Learning
 
 ## Papers
-https://paperswithcode.com/paper/deeper-convolutional-neural-networks-and
-https://paperswithcode.com/paper/musical-tempo-and-key-estimation-using
-https://arxiv.org/pdf/1706.02921.pdf
+https://paperswithcode.com/paper/deeper-convolutional-neural-networks-and  
+https://paperswithcode.com/paper/musical-tempo-and-key-estimation-using  
+https://arxiv.org/pdf/1706.02921.pdf  
 
 ## Topic
 Musical feature extraction

@@ -25,8 +25,8 @@ This is a set of vocal recordings only
 * Optionally, my own dataset
 
 My main focus will be on model generation. However, if I can reach satisfying results before my estimated time is used up, I will invest the remaining time into dataset creation. Hence the following breakdown is somewhat flexible:
-* Dataset collection: 3-8 hrs
-* Design/build network: 9-14 hrs
+* Dataset collection: 2-8 hrs
+* Design/build network: 9-15 hrs
 * Train/tune network: 18 hrs
 * Build application: 8 hrs
 * Write report: 6 hrs

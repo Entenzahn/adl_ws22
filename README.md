@@ -32,3 +32,24 @@ My main focus will be on model generation. However, if I can reach satisfying re
 * Write report: 6 hrs
 * Presentation: 6 hrs
 Total: 55 hrs
+
+
+# Phase 2 - Hacking report
+
+## Plan
+My references paper used accuracy ratings (micro-averaged from my understanding) as well as the Mirex score. I am using both scores to be comparable.
+
+The state of the art in Mirex score is around 75. My aim was to reach at least 70.
+
+For the implementation I went for stripped-down version of InceptionKeyNet. I implemented some of the blocks, but stopped noticing performance increases after a while, and in fact it seemed that the network decreased in accuracy. Personally I think the full network is overkill for key detection only, which likely depends on a few base frequencies for the most part. My next steps will include experimentation with more simple models.
+
+## Installation
+All code and notes can be found in the Jupyter notebook. Please install the dependencies outlined in requirements.txt. The audio files must be downloaded using the repository links above. The project is configured for Giantsteps and Giantsteps MTG and allows setup of data locations within the notebook.
+
+## Results
+The final Mirex best score for my network is currently around 60 across various recomputed train-test splits using the optimal configuration (should be set up at time of submissions), meaning I am sadly behind my established target at the moment.
+
+Rough time investment:
+* Dataset collection: 3 hrs
+* Design/build network: 30 hrs
+* Train/tune network: 20 hrs

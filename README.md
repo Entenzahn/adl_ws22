@@ -46,7 +46,7 @@ For the implementation I went for stripped-down version of InceptionKeyNet. I im
 ## Installation
 All code and notes can be found in the Jupyter notebook. Please install the dependencies outlined in requirements.txt. The audio files must be downloaded using the repository links above. The project is configured for Giantsteps and Giantsteps MTG and allows setup of data locations within the notebook.
 
-Some of the files could not be opened by librosa. The notebook includes a workaround, but it may be hard to follow. The affected files are
+Some of the files could not be opened by librosa. The notebook includes a workaround, but it may be hard to follow. The affected Giantsteps files are
 
 1149778.LOFI.mp3  
 1164898.LOFI.mp3  

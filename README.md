@@ -44,7 +44,7 @@ The state of the art in Mirex score is around 75. My aim was to reach at least 7
 For the implementation I went for stripped-down version of InceptionKeyNet. I implemented some of the blocks, but stopped noticing performance increases after a while, and in fact it seemed that the network decreased in accuracy. Personally I think the full network is overkill for key detection only, which likely depends on a few base frequencies for the most part. My next steps will include experimentation with more simple models.
 
 ## Installation
-All code and notes can be found in the Jupyter notebook. Please install the dependencies outlined in requirements.txt. The audio files must be downloaded using the repository links above. The project is configured for Giantsteps and Giantsteps MTG and allows setup of data locations within the notebook.
+All code and notes can be found in the Jupyter notebook. Please install the dependencies outlined in requirements.txt. The audio files must be downloaded using the repository links above. The project is configured for Giantsteps and Giantsteps MTG and allows setup of data locations within the notebook. It also includes a conversion script from mp3 to wav. I neeeded to load the files in wav format on my windows machine, or else a significant chunk would not load
 
 ## Results
 The final Mirex best score for my network is currently around 60 across various recomputed train-test splits using the optimal configuration (should be set up at time of submissions), meaning I am sadly behind my established target at the moment.

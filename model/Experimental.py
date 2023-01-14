@@ -89,34 +89,26 @@ class SplitNet(nn.Module):
 class ColNet(nn.Module):
     def __init__(self):
         super().__init__()
-        self.drop_rate = 0.3
+        self.drop_rate = 0.6
 
         self.drop_layer = nn.Dropout2d(p=self.drop_rate)
 
-        self.conv1 = nn.Conv2d(1, 12, (14,1), stride=(14,1))
-        self.bn1 = nn.BatchNorm2d(12)
-        self.conv2 = nn.Conv2d(12, 24, 3)
-        self.bn2 = nn.BatchNorm2d(24)
-        self.conv3 = nn.Conv2d(24, 24, 3, stride=3)
-        self.bn3 = nn.BatchNorm2d(24)
-        self.out_layer1 = nn.Linear(15408, 2400)
+        self.conv1 = nn.Conv2d(1, 24, (18,1), stride=(9,1))
+        self.bn1 = nn.BatchNorm2d(24)
+        self.conv2 = nn.Conv2d(24, 36, 3)
+        self.bn2 = nn.BatchNorm2d(36)
+        self.conv3 = nn.Conv2d(36, 48, 5, stride=3)
+        self.bn3 = nn.BatchNorm2d(48)
+        self.out_layer1 = nn.Linear(51360, 2400)
         self.out_layer2 = nn.Linear(2400, 24)
 
     def forward(self, x):
-        # print(x.device)
-        # print(self.conv1.state_dict()['bias'].device)
-        #print(f"Original dimensions: {x.shape}")
         x = self.bn1(F.relu(self.conv1(x)))
-        #print(f"First layer: {x.shape}")
         x = self.bn2(F.relu(self.conv2(x)))
-        #print(f"Second layer: {x.shape}")
         x = self.bn3(F.relu(self.conv3(x)))
-        #print(f"Third layer: {x.shape}")
         x = self.drop_layer(x)
         x = torch.flatten(x, 1)
         x = F.relu(self.out_layer1(x))
-        #print(f"Fully conncected layer: {x.shape}")
         x = F.softmax(self.out_layer2(x), dim=1)
-        #print(f"Done lol")
 
         return x

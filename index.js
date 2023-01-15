@@ -1,6 +1,7 @@
 async function readJSON (event) {
 	let str = event.target.result;
 	let json = JSON.parse(str);
+    console.log('Loading keyNet')
 
 	const session = await ort.InferenceSession.create('./releases/download/v0.1-beta/keyNet.onnx');
 

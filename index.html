@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>ONNX Runtime JavaScript examples: Quick Start - Web (using script tag)</title>
+    </header>
+    <body>
+        <!-- import ONNXRuntime Web from CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+        <script src="./index.js"></script>
+        <script type="application/json" src="./tensor.json"></script>
+  <h1>Predicting musical keys with a deep learning network</h1>
+
+    <form id="upload">
+        <label for="file">Select tensor file</label>
+        <input type="file" id="file" accept=".json">
+
+        <button>Predict</button>
+    </form>
+        <script>
+
+            let form = document.querySelector('#upload');
+            let file = document.querySelector('#file');
+            form.addEventListener('submit', predictKey, true);
+        </script>
+  <div id="predictions">
+
+  </div>
+</body>
+</html>

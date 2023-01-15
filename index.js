@@ -2,8 +2,8 @@ async function readJSON (event) {
 	let str = event.target.result;
 	let json = JSON.parse(str);
 
-	const session = await ort.InferenceSession.create('./keyNet.onnx');
-	console.log("test")
+	const session = await ort.InferenceSession.create('./releases/download/v0.1-beta/keyNet.onnx');
+
         /*j = await fetch("./tensor.json")
             .then(res => res.json())
             .then(json => {

@@ -1,5 +1,19 @@
 # Musical key detection with Deep Learning
 
+## Quick use
+
+1. Load the latest release min_files.zip OR clone the repository and load the ONNX model attachment
+2. Use export_tensor.py to transform your .wav file into a JSON-encoded 2d spectogram.
+```
+python .\export_tensor.py AUDIOFILE TARGETFILE
+```
+3. Run a localhost server in the root directory of the project, e.g. for port 8080
+```
+npx light-server -s . -p 8080
+```
+4. Open localhost:PORT in your browser of choice (activate JavaScript)
+5. Load the exported tensor file and submit
+
 ## Papers
 https://paperswithcode.com/paper/deeper-convolutional-neural-networks-and  
 https://paperswithcode.com/paper/musical-tempo-and-key-estimation-using  
@@ -46,20 +60,6 @@ For the implementation I went for stripped-down version of InceptionKeyNet. I im
 ## Installation
 All code and notes can be found in the Jupyter notebook. Please install the dependencies outlined in requirements.txt. The audio files must be downloaded using the repository links above. The project is configured for Giantsteps and Giantsteps MTG and allows setup of data locations within the notebook. It also includes a conversion script from mp3 to wav. I neeeded to load the files in wav format on my windows machine, or else a significant chunk would not load
 
-Some of the files could not be opened by librosa. The notebook includes a workaround, but it may be hard to follow. The affected Giantsteps files are
-
-1149778.LOFI.mp3  
-1164898.LOFI.mp3  
-1193612.LOFI.mp3  
-1198688.LOFI.mp3  
-1206025.LOFI.mp3  
-1234668.LOFI.mp3  
-1234670.LOFI.mp3  
-1234750.LOFI.mp3  
-1234751.LOFI.mp3  
-1234752.LOFI.mp3  
-1257593.LOFI.mp3  
-1486770.LOFI.mp3  
 
 ## Results
 The final Mirex best score for my network is currently around 60 across various recomputed train-test splits using the optimal configuration (should be set up at time of submissions), meaning I am sadly behind my established target at the moment.

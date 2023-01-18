@@ -43,7 +43,7 @@ class KeyNet(nn.Module):
         self.block_a24_conv_right1 = nn.Conv2d(18 + 19 + 12, 24, 5)
         self.block_a24_bn_cat = nn.BatchNorm2d(24 + 19 + 12)
 
-        self.out_layer = nn.Linear(66880, 24)
+        self.out_layer = nn.Linear(278080, 24)
 
         """self.block_b_conv_left1 = nn.Conv2d(24+19+12, 76, 3)
         self.block_b_conv_mid1 = nn.Conv2d(24+19+12, 12, 1)

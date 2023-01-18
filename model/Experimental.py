@@ -31,7 +31,7 @@ class SplitNet(nn.Module):
         self.tonic_conv4 = nn.Conv2d(12, 24, 1)
         self.tonic_bn4 = nn.BatchNorm2d(24)
 
-        self.tonic_fc1 = nn.Linear(203472, 3200)
+        self.tonic_fc1 = nn.Linear(150336, 3200)
         self.tonic_fc2 = nn.Linear(3200, 12)
 
         self.mode_conv1 = nn.Conv2d(38, 6, 3)
@@ -41,7 +41,7 @@ class SplitNet(nn.Module):
         self.mode_conv3 = nn.Conv2d(9, 12, 3)
         self.mode_bn3 = nn.BatchNorm2d(12)
 
-        self.mode_fc1 = nn.Linear(69768, 24)
+        self.mode_fc1 = nn.Linear(60672, 24)
         self.mode_fc2 = nn.Linear(24, 1)
 
         self.out_layer = nn.Linear(13, 24)
@@ -99,7 +99,7 @@ class ColNet(nn.Module):
         self.bn2 = nn.BatchNorm2d(36)
         self.conv3 = nn.Conv2d(36, 48, 5, stride=3)
         self.bn3 = nn.BatchNorm2d(48)
-        self.out_layer1 = nn.Linear(51360, 2400)
+        self.out_layer1 = nn.Linear(12480, 2400)
         self.out_layer2 = nn.Linear(2400, 24)
 
     def forward(self, x):

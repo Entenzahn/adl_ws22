@@ -19,7 +19,7 @@ def parse_song_data(data):
         for i in range(5):
             song.segment_specs.append(
                 SegmentSpectrumData(
-                    spec = random_segmentation_spectograph(song.qt_spec_base, target_w=162, segment_w=27),
+                    spec = random_segmentation_spectograph(song.qt_spec, target_w=162, segment_w=27),
                     sid = sid
                 )
             )

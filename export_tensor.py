@@ -4,6 +4,27 @@ import numpy as np
 import json
 import sys
 
+
+def repeat_spectograph_to_k_col(spec:np.ndarray, k:int) -> np.ndarray:
+    orig_l = spec.shape[1]
+    diff = k - orig_l
+    while True:
+        attach_l = min([orig_l, diff])
+        spec = np.concatenate((spec, spec[:,0:attach_l]),axis=1)
+        diff = diff - attach_l
+        if spec.shape[1] == k:
+            break
+    return spec
+
+
+def cut_and_fill_spectograph_to_k_col(spec:np.ndarray, k:int) -> np.ndarray:
+    if spec.shape[1] > k:
+        spec = spec[:,:k]
+    elif spec.shape[1] < k:
+        spec = repeat_spectograph_to_k_col(spec, k)
+    return spec
+
+
 def extract_spectograph(y, sr, octaves = 8):
     window_length = 8192
     hop_length = window_length // 2
@@ -14,6 +35,7 @@ def extract_spectograph(y, sr, octaves = 8):
                               n_bins=bins_per_octave * octaves,
                               bins_per_octave=bins_per_octave))
     return data.astype(np.float16)
+
 
 def export_tensor(audio_file, json_file):
     data = dict()
@@ -26,7 +48,11 @@ def export_tensor(audio_file, json_file):
             print(f"ERROR: Could not open {audio_file}")
         print(f" Extracting {audio_file}...")
 
-    spec = extract_spectograph(y,sr).tolist()
+    full_spec = extract_spectograph(y,sr)
+    if full_spec.shape[1] != 646:
+        spec = cut_and_fill_spectograph_to_k_col(full_spec, 646).tolist()
+    else:
+        spec=full_spec.tolist()
 
     with open(json_file, "w") as f:
         json.dump(spec, f)
